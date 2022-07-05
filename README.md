@@ -1,5 +1,5 @@
 # Smoke
-A 2D fluid simulation that runs on the GPU via CUDA
+A 2D fluid simulation that runs on the GPU via CUDA. There is a little bit of lag in the videos due to the screen capturing software.
 
 ## As Music visualizer
 It has built in beat detection (code is in app/audio), which can be used to trigger effects and generate smoke movement automatically without user input.
