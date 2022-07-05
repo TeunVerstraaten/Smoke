@@ -54,28 +54,29 @@ namespace app::audio {
     }
 
     size_t AudioPlayer::current_offset() const {
-        return  static_cast<size_t>(m_sound.getPlayingOffset().asSeconds() * static_cast<float>(m_sample_rate));
+        return static_cast<size_t>(m_sound.getPlayingOffset().asSeconds() * static_cast<float>(m_sample_rate));
     }
 
     size_t AudioPlayer::sample_rate() const {
         return m_sample_rate;
     }
 
-     AudioBuffer AudioPlayer::normalized_buffer(size_t offset) const {
-        if (offset >  AudioBuffer::s_size)
-            offset -=  AudioBuffer::s_size;
+    AudioBuffer AudioPlayer::normalized_buffer(size_t offset) const {
+        if (offset > AudioBuffer::s_size)
+            offset -= AudioBuffer::s_size;
 
         const size_t total_sample_count = m_sound_buffer.getSampleCount();
         if (offset >= total_sample_count)
-            return  AudioBuffer{};
+            return AudioBuffer{};
 
-        return  AudioBuffer(
+        return AudioBuffer(
             // Source ptr
             static_cast<const sf::Int16*>(m_sound_buffer.getSamples() + offset),
             // Transformation function that simply normalizes signal
-            std::function<double(sf::Int16)>([](sf::Int16 s) { return static_cast<double>(s) / std::numeric_limits<sf::Int16>::max(); }),
+            std::function<double(sf::Int16)>(
+                [](sf::Int16 s) { return static_cast<double>(s) / std::numeric_limits<sf::Int16>::max(); }),
             // Size
-            std::min(total_sample_count - offset,  AudioBuffer::s_size));
+            std::min(total_sample_count - offset, AudioBuffer::s_size));
     }
 
 } // namespace app::audio

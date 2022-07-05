@@ -14,8 +14,8 @@ int main(int argc, char** argv) {
 
     const QString audio_file = "minimal.wav";
 
-//    app::disp::MainWindow widget(audio_file);
-        app::disp::MainWindow widget;
+    app::disp::MainWindow widget(audio_file);
+    //        app::disp::MainWindow widget;
     widget.show();
     return app.exec();
 }
