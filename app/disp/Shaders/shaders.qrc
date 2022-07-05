@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>PlainFragmentShader.glsl</file>
+        <file>PlainVertexShader.glsl</file>
+        <file>SmokeFragmentShader.glsl</file>
+        <file>SmokeVertexShader.glsl</file>
+    </qresource>
+</RCC>
