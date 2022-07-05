@@ -1,2 +1,2 @@
 # Smoke
-A 2D fluid simulation. Can be driven also by song
+A 2D fluid simulation that runs on the GPU via CUDA
